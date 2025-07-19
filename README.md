@@ -1,5 +1,5 @@
-# Python Projects
-# Machine Learning Projects Portfolio
+
+# Machine Learning Projects
 
 This repository showcases machine learning projects, each solving a real-world business problem with data-driven solutions. All models are built using Python and deployed via Streamlit for interactive use.
 
