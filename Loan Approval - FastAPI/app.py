@@ -1,0 +1,141 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "b1cafadc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting fastapi\n",
+      "  Downloading fastapi-0.115.14-py3-none-any.whl (95 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m95.5/95.5 kB\u001b[0m \u001b[31m4.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting uvicorn[standard]\n",
+      "  Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m66.4/66.4 kB\u001b[0m \u001b[31m4.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4\n",
+      "  Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m444.8/444.8 kB\u001b[0m \u001b[31m15.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hRequirement already satisfied: typing-extensions>=4.8.0 in /Users/hinalpanchal/opt/anaconda3/lib/python3.9/site-packages (from fastapi) (4.12.2)\n",
+      "Collecting starlette<0.47.0,>=0.40.0\n",
+      "  Downloading starlette-0.46.2-py3-none-any.whl (72 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m72.0/72.0 kB\u001b[0m \u001b[31m8.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting h11>=0.8\n",
+      "  Downloading h11-0.16.0-py3-none-any.whl (37 kB)\n",
+      "Requirement already satisfied: click>=7.0 in /Users/hinalpanchal/opt/anaconda3/lib/python3.9/site-packages (from uvicorn[standard]) (8.0.4)\n",
+      "Collecting python-dotenv>=0.13\n",
+      "  Downloading python_dotenv-1.1.1-py3-none-any.whl (20 kB)\n",
+      "Requirement already satisfied: pyyaml>=5.1 in /Users/hinalpanchal/opt/anaconda3/lib/python3.9/site-packages (from uvicorn[standard]) (6.0)\n",
+      "Collecting httptools>=0.6.3\n",
+      "  Downloading httptools-0.6.4-cp39-cp39-macosx_10_9_universal2.whl (201 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m201.1/201.1 kB\u001b[0m \u001b[31m20.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting watchfiles>=0.13\n",
+      "  Downloading watchfiles-1.1.0-cp39-cp39-macosx_10_12_x86_64.whl (406 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m406.4/406.4 kB\u001b[0m \u001b[31m23.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting websockets>=10.4\n",
+      "  Downloading websockets-15.0.1-cp39-cp39-macosx_10_9_x86_64.whl (173 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m173.1/173.1 kB\u001b[0m \u001b[31m23.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting uvloop>=0.15.1\n",
+      "  Downloading uvloop-0.21.0-cp39-cp39-macosx_10_9_x86_64.whl (800 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m800.9/800.9 kB\u001b[0m \u001b[31m33.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hCollecting typing-inspection>=0.4.0\n",
+      "  Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)\n",
+      "Collecting annotated-types>=0.6.0\n",
+      "  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)\n",
+      "Collecting pydantic-core==2.33.2\n",
+      "  Downloading pydantic_core-2.33.2-cp39-cp39-macosx_10_12_x86_64.whl (2.0 MB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.0/2.0 MB\u001b[0m \u001b[31m37.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0ma \u001b[36m0:00:01\u001b[0m\n",
+      "\u001b[?25hCollecting anyio<5,>=3.6.2\n",
+      "  Downloading anyio-4.9.0-py3-none-any.whl (100 kB)\n",
+      "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m100.9/100.9 kB\u001b[0m \u001b[31m9.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hRequirement already satisfied: idna>=2.8 in /Users/hinalpanchal/opt/anaconda3/lib/python3.9/site-packages (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi) (3.3)\n",
+      "Requirement already satisfied: sniffio>=1.1 in /Users/hinalpanchal/opt/anaconda3/lib/python3.9/site-packages (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi) (1.2.0)\n",
+      "Collecting exceptiongroup>=1.0.2\n",
+      "  Downloading exceptiongroup-1.3.0-py3-none-any.whl (16 kB)\n",
+      "Installing collected packages: websockets, uvloop, typing-inspection, python-dotenv, pydantic-core, httptools, h11, exceptiongroup, annotated-types, uvicorn, pydantic, anyio, watchfiles, starlette, fastapi\n",
+      "  Attempting uninstall: anyio\n",
+      "    Found existing installation: anyio 3.5.0\n",
+      "    Uninstalling anyio-3.5.0:\n",
+      "      Successfully uninstalled anyio-3.5.0\n",
+      "\u001b[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n",
+      "jupyter-server 1.18.1 requires anyio<4,>=3.1.0, but you have anyio 4.9.0 which is incompatible.\u001b[0m\u001b[31m\n",
+      "\u001b[0mSuccessfully installed annotated-types-0.7.0 anyio-4.9.0 exceptiongroup-1.3.0 fastapi-0.115.14 h11-0.16.0 httptools-0.6.4 pydantic-2.11.7 pydantic-core-2.33.2 python-dotenv-1.1.1 starlette-0.46.2 typing-inspection-0.4.1 uvicorn-0.35.0 uvloop-0.21.0 watchfiles-1.1.0 websockets-15.0.1\n"
+     ]
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "!{sys.executable} -m pip install fastapi \"uvicorn[standard]\"\n",
+    "from fastapi import FastAPI\n",
+    "from pydantic import BaseModel\n",
+    "import joblib\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ae773d97",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class InputData(BaseModel):\n",
+    "    x1: float\n",
+    "    x2: float\n",
+    "    x3: float\n",
+    "    x4: float\n",
+    "    x5: float\n",
+    "\n",
+    "scaler = joblib.load('Scaler.pkl')\n",
+    "model = joblib.load('model.pkl')\n",
+    "\n",
+    "app = FastAPI()\n",
+    "\n",
+    "@app.post('/predict/')\n",
+    "\n",
+    "def predict(input_data : InputData):\n",
+    "    x_values = np.array([[\n",
+    "        input_data.x1,\n",
+    "        input_data.x2,\n",
+    "        input_data.x3,\n",
+    "        input_data.x4,\n",
+    "        input_data.x5\n",
+    "    ]])\n",
+    "    \n",
+    "    scaled_x_values = scaler.transform(x_values)\n",
+    "    \n",
+    "    prediction = model.predict(scaled_x_values)\n",
+    "    \n",
+    "    prediction = int(prediction[0])\n",
+    "    return{'prediction':prediction}\n",
+    "\n",
+    "if__name__=='__main__':\n",
+    "    uvicorn.run(app,host = '127.0.0.1', port=8000)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
